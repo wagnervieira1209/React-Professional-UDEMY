@@ -5,10 +5,6 @@
         <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 
-        <!-- Babel-->
-        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-
         <style>
             .title {
                 color: green;
@@ -21,7 +17,6 @@
     </head>
     <body>
         <div id="root"></div>
-        <div id="root2"></div>
 
         <script>
             var e = React.createElement;
@@ -37,16 +32,6 @@
             document.getElementById('root')
             );
 
-        </script>
-
-        <script type="text/babel">
-            ReactDOM.render(
-                            <h1 className="title">
-                                Olá mundo react!
-                                <br /> 
-                                <span className="subtitle">Estamos aprendendo</span>
-                            </h1>,
-                        document.getElementById("root2"));
         </script>
 
     </body>
