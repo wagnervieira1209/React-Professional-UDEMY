@@ -1,0 +1,173 @@
+<html>
+    <head>
+        <!-- Adicionar o React. -->
+        <!-- Nota: ao fazer o deploy, substitua "development.js" por "production.min.js". -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+        <!-- Babel-->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        
+        
+        <style>
+
+            /*REINICIAR BORDER-BOX*/
+            html {
+                box-sizing: border-box;
+            }
+
+            *, *::before, *:after {
+                box-sizing: inherit;
+            }
+
+            body {
+                background-color: #121212;
+                font-family: sans-serif;
+                margin: 0;
+            }
+        
+            .header {
+                background-color: #333;
+                text-align: center;
+                color: white;
+                padding: 16px;
+                border-radius: 4px;
+            }
+
+            .calculator {
+                background-color: #FFF;
+                margin: 40px auto;
+                max-width: 400px;
+                padding: 16px;
+                border-radius: 4px;
+            }
+
+            .display {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 1.2em;
+            }
+
+            .keyboard {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 1 frame */
+                grid-gap: 16px;
+                font-size: 1.2em;
+                margin-top: 16px;
+                font-weight: bold;
+            }
+
+            button {
+                border: 0;
+                border-radius: 4px;
+                background-color: #efefef;
+                padding: 8px;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/babel">
+
+            const Header = () => <div className="header">CALCULADOR</div> 
+
+            const Calculator = () => {
+
+                const [display, setDisplay] = React.useState('');
+
+                return (
+                    <div className="calculator">
+                        <div className="display">
+                            {display}    
+                        </div>
+                        <div className="keyboard">
+                            <button
+                                onClick={() => {
+                                    setDisplay(display + '7')
+                                }}
+                            >
+                                7
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setDisplay(display + '8')
+                                }}
+                            >
+                                8
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setDisplay(display + '9')
+                                }}
+                            >
+                                9
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setDisplay(display + '4')
+                                }}
+                            >
+                                4
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setDisplay(display + '5')
+                                }}
+                            >
+                                5
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setDisplay(display + '6')
+                                }}
+                            >
+                                6
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setDisplay(display + '1')
+                                }}
+                            >
+                                1
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setDisplay(display + '2')
+                                }}
+                            >
+                                2
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setDisplay(display + '3')
+                                }}
+                            >
+                                3
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setDisplay(display + '0')
+                                }}
+                            >
+                                0
+                            </button>
+                        </div>
+                    </div>
+                );
+            }
+            const App = () => {
+                return (<div>
+                    <Header />
+                    <Calculator />
+                </div>);
+            }
+
+            ReactDOM.render(
+                    <App />,
+                    document.getElementById('root'));
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>        
+    </body>
+</html>

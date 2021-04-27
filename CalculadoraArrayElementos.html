@@ -71,21 +71,34 @@
 
             const Header = () => <div className="header">CALCULADOR</div> 
 
+            const Button = (props) => (                
+                <button
+                    value={props.value}
+                    onClick={() => {
+                        props.onNumberClick(props.value);
+                    }}
+                >
+                    {props.value}
+                </button>
+            )
+
             const Calculator = () => {
+
+                const [display, setDisplay] = React.useState('');
+                const keyboard = [7,8,9,4,5,6,1,2,3,0];
+                const handleNumberClick = (value) => {
+                    setDisplay(`${display}${value}`);
+                }
+
                 return (
                     <div className="calculator">
-                        <div className="display"></div>
+                        <div className="display">
+                            {display}    
+                        </div>
                         <div className="keyboard">
-                            <button>7</button>
-                            <button>8</button>
-                            <button>9</button>
-                            <button>4</button>
-                            <button>5</button>
-                            <button>6</button>
-                            <button>1</button>
-                            <button>2</button>
-                            <button>3</button>
-                            <button>0</button>
+                            {keyboard.map(k => (
+                                <Button key={k} value={k} onNumberClick={handleNumberClick} />    
+                            ))}                            
                         </div>
                     </div>
                 );
